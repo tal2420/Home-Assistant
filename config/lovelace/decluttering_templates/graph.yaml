@@ -1,0 +1,42 @@
+graph:
+
+    default:
+      - border_radius: var(--graph-border-radius)
+      - font_size: 70
+      - font_size_header: 14
+      - line_width: 5
+      - show_icon: true
+      - show_extrema: true
+      - show_fill: true
+      - points_per_hour: 2
+      - icon: ""
+      - color: ""
+  
+    card:
+      type: custom:mini-graph-card
+      aspect_ratio: 1X1
+      style: |
+        ha-card {
+          border-radius: [[border_radius]];
+          overflow: hidden;
+        }
+      entities:
+          - entity: '[[entity]]'
+            name: '[[name]]'
+            color: '[[color]]'
+      points_per_hour: '[[points]]'
+      icon: '[[icon]]'
+      font_size: '[[font_size]]'
+      font_size_header: '[[font_size_header]]'
+      line_width: '[[line_width]]'
+      show:
+        icon: '[[show_icon]]'
+        extrema: '[[extrema]]'
+        fill: '[[show_fill]]'
+      color_thresholds:
+        - value: 200
+          color: "#f39c12"
+        - value: 201
+          color: "#d35400"
+        - value: 201.5
+          color: "#c0392b"

@@ -1,0 +1,117 @@
+title: TV
+icon: fas:tv
+path: tv  
+cards:
+
+  - type: custom:layout-card
+    #column_width: 250
+    #column_height: 250
+    layout: horizontal
+    cards:
+      - type: custom:decluttering-card
+        template: title
+        variables:
+          - name: טלוויזית סלון
+      - type: horizontal-stack
+        cards:
+          - type: custom:decluttering-card
+            template: tv
+            variables:
+              - name: "ON \ OFF"
+              - entity: media_player.salov_tv
+              #- template: power_button
+              - icon: mdi:power
+              - service:
+              - action: call-service
+              - state:
+          - type: custom:decluttering-card
+            template: tv
+            variables:
+              - name: Volume up
+              - entity: media_player.salov_tv
+              #- template: volume_button
+              - icon: mdi:volume-plus
+              - service: media_player.volume_up
+              - action: call-service
+              - state:
+          - type: custom:decluttering-card
+            template: tv
+            variables:
+              - name: Volume down
+              - entity: media_player.salov_tv
+              #- template: volume_button
+              - icon: mdi:volume-minus
+              - service: media_player.volume_down
+              - action: call-service
+              - state:
+
+  - type: custom:layout-card
+    #column_width: 250
+    #column_height: 250
+    layout: horizontal
+    cards:
+      - type: custom:decluttering-card
+        template: title
+        variables:
+          - name: טלויזיה בחדר של סער
+      - type: horizontal-stack
+        cards:
+          - type: custom:decluttering-card
+            template: tv
+            variables:
+              - name: "ON \ OFF"
+              - entity: media_player.saar_tv
+              #- template: power_button
+              - icon: mdi:power
+              - service:
+              - action: call-service
+              - state:
+          - type: custom:decluttering-card
+            template: tv
+            variables:
+              - name: Volume up
+              - entity: media_player.saar_tv
+              #- template: volume_button
+              - icon: mdi:volume-plus
+              - service: media_player.volume_up
+              - action: call-service
+              - state:
+          - type: custom:decluttering-card
+            template: tv
+            variables:
+              - name: Volume down 
+              - entity: media_player.saar_tv
+              #- template: volume_button
+              - icon: mdi:volume-minus
+              - service: media_player.volume_down
+              - action: call-service
+              - state:
+      # - type: horizontal-stack
+      #   cards:
+      #     - type: "custom:button-card"
+      #       color_type: card
+      #       template: power_button
+      #       name: On\Off
+      #       entity: media_player.saar_tv
+      #     - type: "custom:button-card"
+      #       color_type: card
+      #       template: volume_button
+      #       icon: mdi:volume-plus
+      #       name: "volume up"
+      #       entity: media_player.saar_tv
+      #       tap_action: 
+      #         service: media_player.volume_up
+      #         action: call-service             
+      #         service_data:
+      #           entity_id: media_player.saar_tv
+      #     - type: "custom:button-card"
+      #       color_type: card
+      #       template: volume_button
+      #       icon: mdi:volume-minus
+      #       name: "volume down"
+      #       entity: media_player.saar_tv
+      #       tap_action: 
+      #         service: media_player.volume_down
+      #         action: call-service             
+      #         service_data:
+      #           entity_id: media_player.saar_tv

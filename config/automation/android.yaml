@@ -1,0 +1,44 @@
+- alias: Mobile Notify boiler
+  trigger:
+    - platform: state
+      entity_id: switch.switcher_webapi
+  condition:
+    - condition: template
+      value_template: "{{ is_state('sensor.boiler_temp', '50.1') }}"
+  action:
+    service: notify.notify
+    data:
+      title: "טמפ׳ המיים בדוד גבוהה מידי"
+      message: "טמפ׳ המיים בבוילר היא {{ states.sensor.boiler_temp.state }} "
+      data:
+        actions:
+          - action: 'boiler_on' 
+            title: "הפעל בוילר"
+          - action: 'boiler_off'
+            title: "כבה בוילר"
+
+################################################################################################################
+
+- alias: on switcher notify
+  trigger:
+  - event_data:
+      action: 'boiler_on'
+    event_type: mobile_app_notification_action
+    platform: event
+  condition: []
+  action:
+  - data:
+      entity_id: switch.switcher_webapi
+    service: switch.turn_on
+
+- alias: off switcher notify
+  trigger:
+  - event_data:
+      action: 'boiler_off'
+    event_type: mobile_app_notification_action
+    platform: event
+  condition: []
+  action:
+  - data:
+      entity_id: switch.switcher_webapi
+    service: switch.turn_off
