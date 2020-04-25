@@ -50,4 +50,74 @@ boiler:
           --iron-icon-height: '[[icon_size]]px'
           --iron-icon-width: '[[icon_size]]px'
           --paper-item-icon-color: '[[text_color]]'
+          
+boiler_handle:
+  default:
+  - text_color: var(--picture-elements-text-color)
+  - entity: switch.[[entity]]
+  - icon: mdi:[[icon]]
+  card:
+    type: picture-elements
+    style: |
+      ha-card {
+        border-radius: var(--border-radius);
+        overflow: hidden;
+      }          
+    aspect_ratio: 10.5%  
+    image: '[[image]]'
+    icon: mdi:[[icon]]
+    tap_action:
+      action: '[[tap_action]]'
+    elements:
+      - type: image
+        entity: switch.[[entity]]
+        icon: mdi:[[icon]]
+        image: '[[image]]'
+        tap_action:
+          action: '[[tap_action]]'
+        style:
+          top: 50%
+          left: 50%
+          width: 100%
+      - type: state-label
+        entity: sensor.[[entity]]
+        prefix: 'מצב ידית הבוילר: '
+        tap_action:
+          action: none
+        style:
+          top: '[[top]]'
+          left: '[[left]]'
+          direction: '[[direction]]'
+          font-size: '[[font_size1]]px'
+          color: '[[text_color]]'
+          font-family: tahoma
+          font-weight: bold
+boiler2:
+    default:
+        - icon: '[[icon]]'
+        - state:
+            - value: "on"
+              styles:
+                icon: mdi:test
+    card:
+        type: "custom:button-card"
+        entity: '[[entity]]'
+        show_state: '[[state]]'
+        show_name: '[[show_name]]'
+        tap_action:
+            action: none
+        name: '[[name]]'
+        size: 80%
+        styles:
+            card:
+            - height: 80px
+            - font-size: 14px
+            icon: 
+              top: '[[top]]'
+              left: '[[left]]'
+              direction: '[[direction]]'
+              font-size: '[[font_size1]]px'
+              color: '[[text_color]]'
+              font-family: tahoma
+              font-weight: bold
 

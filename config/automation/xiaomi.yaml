@@ -57,12 +57,16 @@
   trigger:
     platform: state
     entity_id: binary_sensor.door_window_sensor_158d00039d8d54
-    from: 'off'
     to: 'on'
   condition:
-    - condition: state
-      entity_id: group.family
-      state: 'not_home'
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: group.family
+        state: 'not_home'
+      - condition: state
+        entity_id: group.family_gps
+        state: 'not_home'
   action:
     - service: notify.notify
       data:

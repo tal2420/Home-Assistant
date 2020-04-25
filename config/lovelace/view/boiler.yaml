@@ -43,14 +43,22 @@
                 name: זמן לכיבוי
               - entity: sensor.boiler_temp
                 name: טמפ׳ הדוד
+              - entity: sensor.boiler_handle
+                name: מצב ידית קולטים
+                icon: mdi:water-boiler
     - type: vertical-stack
       cards:
         - type: custom:decluttering-card
           template: title
           variables:
             - name: טיימרים קבועים מראש
+
+
         - type: horizontal-stack
           cards:
+            - type: custom:button-card
+              template: shoulder_blank_card 
+      
             - type: "custom:button-card"
               entity: script.switcher_turn_on_timer_script_30
               name: "טיימר 30 דק"
@@ -102,15 +110,23 @@
                   #- color: black
                   - background-color: rgb(0 255, 0, 0.5)
                   - font-size: 14px
-                  
+
+            - type: custom:button-card
+              template: shoulder_blank_card 
+
         - type: vertical-stack
           cards:
+
             - type: custom:decluttering-card
               template: title
               variables:
                 - name: פאנל שליטה בבוילר
             - type: horizontal-stack
               cards:
+
+                - type: custom:button-card
+                  template: shoulder_blank_card 
+                      
                 - type: custom:decluttering-card
                   template: boiler
                   variables:
@@ -128,3 +144,33 @@
                     - text_color: white
                     - icon_color: white
                     - name: boiler
+
+                - type: custom:button-card
+                  template: shoulder_blank_card
+
+
+            - type: horizontal-stack
+              cards:
+
+                - type: custom:button-card
+                  template: shoulder_blank_card
+                - type: custom:decluttering-card
+                  template: boiler_handle
+                  variables:
+                    - image: /local/image/handle.jpg
+                    - entity: boiler_handle
+                    - tap_action: toggle
+                    - tap_action1: toggle
+                    - top: 50%
+                    - left: 50%
+                    # - top1: 60%
+                    # - left1: 50%
+                    - direction: rtl
+                    - icon: shower-head
+                    - text_size: 20
+                    - icon_size: 40
+                    - text_color: white
+                    - icon_color: white
+                    - name: boiler
+                - type: custom:button-card
+                  template: shoulder_blank_card

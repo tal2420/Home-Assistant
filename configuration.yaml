@@ -117,7 +117,7 @@ binary_sensor: !include config/binary_sensor.yaml
 ################################################################################
 lovelace:
   mode: yaml
-  resources: !include /config/lovelace/resources.yaml
+  resources: !include config/lovelace/resources.yaml
 
   dashboards:
     lovelace-wallpanel:

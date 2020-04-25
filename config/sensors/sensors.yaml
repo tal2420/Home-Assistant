@@ -620,12 +620,20 @@
 #                           Security Camera                                #    
 #                                                                          #
 ############################################################################
-
-  # - platform: command_line
-  #   name: SSL cert expiry
-  #   unit_of_measurement: days
-  #   scan_interval: 86400
-  #   command: !secret ssl_left
+  - platform: template
+    sensors:
+      boiler_handle:
+        value_template: >-
+          {% if is_state("switch.boiler_handle", "off") %}
+            סגורה
+          {% else %}
+            פתוחה
+          {% endif %}
+############################################################################
+#                                                                          # 
+#                           Security Camera                                #    
+#                                                                          #
+############################################################################
 
   - platform: cert_expiry
     host: !secret url

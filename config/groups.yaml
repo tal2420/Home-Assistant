@@ -1,4 +1,7 @@
-Homelight:
+boiler_with_handle:
+    - switch.switcher_webapi
+
+homelight:
     - switch.sonoff_1000a3c51a_1
     - switch.sonoff_1000a3c51a_2
     - switch.sonoff_1000a3c51a_3
@@ -6,12 +9,17 @@ Homelight:
     - switch.sonoff_1000ad249f_2
     - switch.sonoff_1000ad249f_3
 
-Family:
-    - device_tracker.ee_08_6b_f4_92_2d
+family:
+    - device_tracker.mi9tpro_saar_sphone
     - device_tracker.galaxy_note10
     - device_tracker.galaxy_s9
 
-family_Notify:
+family_gps:
+    - person.saar
+    - person.michael
+    - person.rachel
+
+family_notify:
     - notify.mobile_app_mi_9t_pro
     - notify.mobile_app_sm_g965f
     - notify.mobile_app_sm_g975f

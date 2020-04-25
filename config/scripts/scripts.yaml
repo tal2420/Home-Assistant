@@ -22,7 +22,7 @@ telegram_weather:
 backup_to_hardisk:
    alias: 'Backup Home Assitant img'
    sequence:
-     - service: shell_command.backup_to_hardisk
+     - service: shell_command.homeassistant
 
 update_homeassistant_container:
    alias: 'Update Home Assitant docker'

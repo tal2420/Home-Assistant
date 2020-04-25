@@ -4,10 +4,7 @@ path: version
 cards:
   - type: vertical-stack
     cards:
-      
-      - type: custom:card-modder
-        card:
-          type: picture-elements
+        - type: picture-elements
           image: /local/sonoff_latest_version.jpg
           elements:
             - type: state-label
@@ -110,6 +107,7 @@ cards:
                 name: יצירת גיבוי חדש
                 action_name: צור גיבוי
                 service: shell_command.backup_to_hardisk
+              - entity: automation.auto_backup
               - entity: sensor.latest_backup
                 name: גיבוי אחרון
                 icon: mdi:numeric-1-box-outline
@@ -196,7 +194,7 @@ cards:
                 name: Available Version
               - type: weblink
                 name: Release Notes
-                url: https://www.home-assistant.io/latest-release-notes/
+                url: https://github.com/home-assistant/core/releases
                 icon: mdi:note-multiple
               - entity: script.update_homeassistant_container
                 icon: mdi:update
@@ -317,53 +315,72 @@ cards:
     - type: custom:decluttering-card
       template: title
       variables:
-        - name: DB/SSL Information
-
+        - name: DB/SSL/USED Information
     - type: horizontal-stack
       cards:
-        
-          - type: custom:button-card
-            template: shoulder_blank_card    
+      
+        - type: custom:button-card
+          template: shoulder_blank_card
+        - type: custom:bar-card
+          positions:
+            # icon: 'off'
+            indicator: inside
+            title: outside
+          severity:
+            - value: 15
+              color: '#bf4040'
+            - value: 40
+              color: '#f39c12'
+            - value: 50
+              color: '#FFD700'
+            - value: 100
+              color: '#40bf40'
+          title_position: left
+          width: 50%
+          height: 30px
+          entities:
+            - entity: sensor.events_size
+              name: "Event Size DB"
+              icon: mdi:database
+              unit_of_measurement: 'MB'
 
-          - type: custom:decluttering-card
-            template: graph
-            variables:
-                - entity: sensor.events_size
-                - name: Events
-                - icon: mdi:database
-                - border_radius: 14px
-                - points: 2
+            - entity: sensor.states_size
+              icon: mdi:database
+              name: "State Size DB"
+              unit_of_measurement: 'MB'
 
-          - type: custom:decluttering-card
-            template: graph
-            variables:
-                - entity: sensor.states_size
-                - name: States
-                - icon: mdi:database
-                - border_radius: 14px
-                - points: 2
-          - type: custom:button-card
-            template: shoulder_blank_card
-    - type: horizontal-stack
-      cards:
-        
-          - type: custom:button-card
-            template: shoulder_blank_card    
+            - entity: sensor.db_size
+              icon: mdi:database
+              name: "DB size"
+              unit_of_measurement: 'MB'
 
-          - type: custom:decluttering-card
-            template: graph
-            variables:
-                - entity: sensor.db_size
-                - name: Full DB
-                - icon: mdi:database
-                - border_radius: 14px
-                - points: 2
-          - type: custom:decluttering-card
-            template: graph
-            variables:
-                - entity: sensor.cert_expiry_saarhome_mynetgear_com
-                - name: SSL
-                - border_radius: 14px
-                - points: 2
-          - type: custom:button-card
-            template: shoulder_blank_card
+            - entity: sensor.cert_expiry_saarhome_mynetgear_com
+              name: "SSL"
+              unit_of_measurement: 'Days'
+
+            - entity: sensor.glances_containers_ram_used
+              name: "Docker Ram Used"
+              unit_of_measurement: 'MB'
+
+            - entity: sensor.glances_cpu_load
+              name: "Cpu load"
+              unit_of_measurement: '%'
+
+            - entity:  sensor.glances_cpu_used
+              name: "Cpu Used"
+              unit_of_measurement: '%'
+
+            - entity: sensor.glances_ram_used_percent #schutting_achter
+              name: "Ram Used"
+              unit_of_measurement: '%'
+
+          style: |-
+            bar-card-value {
+              margin-right: auto;
+              font-size: 13px;
+              font-weight: bold;
+              text-shadow: 1px 1px #0005;
+            }
+
+        - type: custom:button-card
+          template: shoulder_blank_card

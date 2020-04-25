@@ -1,0 +1,127 @@
+#########################################################################
+#                                                                       #
+#                                                                       #
+#                                                                       #
+########################################################################
+- alias: 'Send notification upon failed login attempt Notify'
+  initial_state: 'on'
+  trigger:
+    - platform: state
+      entity_id: persistent_notification.http_login
+  condition:
+    - condition: template
+      value_template: "{{ trigger.to_state.state != 'None' }}"
+  action:
+    - service: notify.mobile_app_mi_9t_pro
+      data_template:
+        title: 'בוצע נסיון כניסה שנכשל!'   #Failed login attempt!
+        message: "{{ state_attr('persistent_notification.http_login', 'message') }}"
+
+#########################################################################
+#                                                                       #
+#                                                                       #
+#                                                                       #
+########################################################################
+- alias: 'SSL Certificate Notify'
+  initial_state: 'on'
+  trigger:
+    - platform: state
+      entity_id: sensor.cert_expiry_saarhome_mynetgear_com
+  condition:
+    - condition: template
+      value_template: "{{ states.sensor.cert_expiry_saarhome_mynetgear_com.state == '3' }}"
+  action:
+    - service: notify.mobile_app_mi_9t_pro
+      data_template:
+        title: 'SSL Certificate attention' 
+        message: "EXP IN {{ states.sensor.cert_expiry_saarhome_mynetgear_com.state }} days"
+#########################################################################
+#                                                                       #
+#                                                                       #
+#                                                                       #
+######################################################################## 
+- alias: 'New version update Notify'
+  initial_state: 'on'
+  trigger:
+    - platform: state
+      entity_id: sensor.ha_available_version
+      to: 'yes'
+  action:
+    - service: notify.mobile_app_mi_9t_pro
+      data_template:
+        title: 'עדכון גרסא זמין' 
+        message: "Current Version: {{ states.sensor.ha_current_version.state }}. \nNew Version: {{ states.sensor.ha_available_version.state }}"
+#########################################################################
+#                                                                       #
+#                                                                       #
+#                                                                       #
+######################################################################## 
+- alias: HACS Updates Notification
+  trigger:
+    - platform: state
+      entity_id: sensor.hacs
+  condition:
+    - condition: template
+      value_template: "{{ states(trigger.entity_id) != 'unknown'}}"
+    - condition: template
+      value_template: "{{ (states(trigger.entity_id) | float) != 0}}"
+  action:
+    - service: notify.mobile_app_mi_9t_pro
+      data_template:
+        title: Updates pending in HACS
+        message: >-
+            {% for repo in state_attr(trigger.entity_id, 'repositories') %}
+            {{ repo.display_name }}: {{ repo["installed version"] }} -> {{ repo["available version"] }}
+            s {% endfor %}
+##############################################################################
+#
+# send notification upon IP BAN
+# if there was a IP BAN , send Notification with URL and IP of the hacker ;)
+##############################################################################
+- alias: 'Send notification upon IP BAN Notify'
+  initial_state: 'on'
+  trigger:
+    - platform: state
+      entity_id: persistent_notification.ip_ban
+  condition:
+    - condition: template
+      value_template: "{{ trigger.to_state.state != 'None' }}"
+  action:
+    - service: notify.mobile_app_mi_9t_pro
+      data_template:
+        title: 'אייפיי נחסם!'   #Failed login attempt!
+        message: "{{ state_attr('persistent_notification.ip_ban', 'message') }}"
+
+########################################################################################################################
+ 
+- alias: Alert when a critical container goes offline
+  initial_state: 'on'
+  trigger:
+    - platform: state
+      entity_id: switch.nginx, switch.home_assistant, switch.mqtt
+      to: 'off'
+      for:
+        seconds: 10
+  condition:
+    condition: and
+    conditions:
+      # Only send this once per hour
+      - condition: template
+        value_template: >
+          {% if states.automation.alert_when_a_critical_container_goes_offline.last_triggered is not none %}
+            {% if as_timestamp(now()) | int   -  as_timestamp(states.automation.alert_when_a_critical_container_goes_offline.attributes.last_triggered) | int > 3600 %} true {% else %} false
+            {% endif %}
+          {% else %}
+          false
+          {% endif %}
+  action:
+    - service: notify.mobile_app_mi_9t_pro
+      data_template:
+        message: 'Docker container for {{ trigger.to_state.name }} is not running. Down Before 10 seconds'
+        title: Container Alert
+    - service: persistent_notification.create
+      data_template:
+        notification_id: offline_container
+        title: Container Offline
+        message: >
+          Docker container for {{ trigger.to_state.name }} is not running. Down Before 10 seconds'

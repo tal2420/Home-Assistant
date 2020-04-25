@@ -69,7 +69,7 @@
   retain: false
  ##############################################################################
 - platform: mqtt
-  name: "Wemos D1 mini"
+  name: "boiler_handle"
   state_topic: "stat/temp5/POWER"
   command_topic: "cmnd/temp5/POWER"
   availability_topic: "tele/temp5/LWT"
@@ -95,5 +95,4 @@
             service: script.turn_on
             data:
               entity_id: script.switcher_turn_off
-    
   

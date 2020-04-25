@@ -3,7 +3,9 @@ badges:
 icon: fas:home
 cards:
   - type: horizontal-stack
-    cards:    
+    cards:  
+      - type: custom:button-card
+        template: shoulder_blank_card  
       - type: horizontal-stack
         cards:
           - type: custom:decluttering-card
@@ -73,6 +75,8 @@ cards:
               - text_color: white
               - icon_color: white
               - tap_action: more_info
+      - type: custom:button-card
+        template: shoulder_blank_card
 #############################################################################################################################################
 #                                                                                                                                           # 
 #                                                         VIEW 3 - Map                                                                      #
@@ -81,6 +85,8 @@ cards:
 
   - type: horizontal-stack
     cards:
+    - type: custom:button-card
+      template: shoulder_blank_card
     - type: map
       #aspect_ratio: 4:3
       default_zoom: 16
@@ -90,6 +96,8 @@ cards:
        - person.michael
        - person.rachel
        - person.toyota
+    - type: custom:button-card
+      template: shoulder_blank_card
 #############################################################################################################################################
 #                                                                                                                                           # 
 #                                                         VIEW 4 - Welcome Banner                                                           #
@@ -98,6 +106,8 @@ cards:
   
   - type: horizontal-stack
     cards:
+      - type: custom:button-card
+        template: shoulder_blank_card
       - type: custom:decluttering-card
         template: welcome_banner
         variables:
@@ -119,14 +129,8 @@ cards:
           - font_size5: 12
           - text_color: white
           - tap_action: more_info
-
-          # background-repeat: no-repeat
-          # background-color: rgba(50,50,50,0.3)
-          # background-size: 100% 68px
-          # border-radius: 10px
-          # border: solid 1px rgba(100,100,100,0.3)
-          # box-shadow: 3px 3px rgba(0,0,0,0.4)
-          # overflow: hidden              
+      - type: custom:button-card
+        template: shoulder_blank_card           
 #############################################################################################################################################
 #                                                                                                                                           # 
 #                                                             Main Aquarium                                                                 #
@@ -144,6 +148,8 @@ cards:
 
           - type: horizontal-stack
             cards:
+              - type: custom:button-card
+                template: shoulder_blank_card
               - type: custom:decluttering-card
                 template: info
                 variables:
@@ -186,8 +192,12 @@ cards:
                     #else 
                     #return 'mdi:lightbulb-outline';
                     #]]]"
+              - type: custom:button-card
+                template: shoulder_blank_card
           - type: horizontal-stack
             cards:
+                - type: custom:button-card
+                  template: shoulder_blank_card
                 - type: custom:decluttering-card
                   template: info
                   variables:
@@ -209,14 +219,21 @@ cards:
                       - state: true
                       - show_name: false
                       - icon_color: var(--paper-item-icon-color)
+                - type: custom:button-card
+                  template: shoulder_blank_card
           - type: vertical-stack
             cards: 
+
+              - type: custom:button-card
+                template: shoulder_blank_card
               - type: custom:decluttering-card
                 template: title
                 variables:
                    - name: מידע אודות אקווריום תחתון
               - type: horizontal-stack
                 cards:
+                - type: custom:button-card
+                  template: shoulder_blank_card
                 - type: custom:decluttering-card
                   template: info
                   variables:
@@ -231,6 +248,8 @@ cards:
                       - state: true
                       - show_name: false
                       - icon_color: var(--paper-item-icon-color)
+
+
                 - type: custom:decluttering-card
                   template: info1
                   variables:
@@ -247,8 +266,12 @@ cards:
                       else 
                       return 'mdi:lightbulb-outline';
                       ]]]"
+                - type: custom:button-card
+                  template: shoulder_blank_card                  
               - type: horizontal-stack
                 cards:
+                  - type: custom:button-card
+                    template: shoulder_blank_card
                   - type: custom:decluttering-card
                     template: info
                     variables:
@@ -266,6 +289,8 @@ cards:
                         - state: true
                         - show_name: false
                         - icon_color: var(--paper-item-icon-color)
+                  - type: custom:button-card
+                    template: shoulder_blank_card
 #############################################################################################################################################
 #                                                                                                                                           # 
 #                                                             Temprature sensor                                                             #
@@ -282,6 +307,8 @@ cards:
 
           - type: horizontal-stack
             cards:
+              - type: custom:button-card
+                template: shoulder_blank_card
               - type: "custom:button-card"
                 color: rgb(68, 115, 158)
                 entity: sensor.temp1_1
@@ -312,8 +339,12 @@ cards:
                   card:
                     - height: 80px
                     - font-size: 12px
+              - type: custom:button-card
+                template: shoulder_blank_card
           - type: horizontal-stack
             cards:
+              - type: custom:button-card
+                template: shoulder_blank_card
               - type: "custom:button-card"
                 color: rgb(68, 115, 158)
                 entity: sensor.temp4_4
@@ -334,9 +365,12 @@ cards:
                   card:
                     - height: 80px
                     - font-size: 12px
-
+              - type: custom:button-card
+                template: shoulder_blank_card
       - type: vertical-stack
         cards:
+          - type: custom:button-card
+            template: shoulder_blank_card
           - type: custom:xiaomi-vacuum-card
             entity: vacuum.xiaomi_vacuum
             image: /local/image/vacuum_card002.jpg
@@ -366,6 +400,8 @@ cards:
                     - name: מידע מדפסת ביתית
               - type: custom:vertical-stack-in-card
                 cards:
+                  - type: custom:button-card
+                    template: shoulder_blank_card
                   - type: entities
                     show_header_toggle: false    
                     tap_action: none
@@ -416,6 +452,8 @@ cards:
                       bar-card-contentbar {
                         flex-direction: column;
                       }
+              - type: custom:button-card
+                template: shoulder_blank_card
 #############################################################################################################################################
 #                                                                                                                                           # 
 #                                                         Boiler Information                                                                #
@@ -432,6 +470,8 @@ cards:
 
           - type: horizontal-stack
             cards:
+              - type: custom:button-card
+                template: shoulder_blank_card
               - type: custom:bar-card
                 entity: sensor.cover_livingroom_positon
                 name: "מצב התריס"
@@ -484,9 +524,13 @@ cards:
                     text-shadow: 1px 1px #0005;
                     font-family: tahoma;
                     font-size: 12px;
-                    }              
+                    }   
+              - type: custom:button-card
+                template: shoulder_blank_card          
           - type: horizontal-stack
             cards:   
+              - type: custom:button-card
+                template: shoulder_blank_card
               - type: "custom:button-card"
                 entity: script.living_room_shutter_open
                 name: "העלאה"
@@ -535,6 +579,8 @@ cards:
                     - background-color: white
                     - font-size: 14px
                     - font-weight: bold
+              - type: custom:button-card
+                template: shoulder_blank_card
         styles:                 
           border-radius: 10px
           border: solid 1px rgba(100,100,100,0.3)
@@ -549,6 +595,8 @@ cards:
 
           - type: horizontal-stack
             cards:
+              - type: custom:button-card
+                template: shoulder_blank_card
               - type: custom:decluttering-card
                 template: info
                 variables:
@@ -573,6 +621,8 @@ cards:
                      - entity: sensor.pound_gbp
                      - name: פאונד
                      - icon_color: var(--paper-item-icon-color)
+              - type: custom:button-card
+                template: shoulder_blank_card
       - type: vertical-stack
         cards:
           - type: custom:decluttering-card
@@ -582,6 +632,8 @@ cards:
 
           - type: horizontal-stack
             cards:
+              - type: custom:button-card
+                template: shoulder_blank_card
               - type: custom:decluttering-card
                 template: info
                 variables:
@@ -605,8 +657,12 @@ cards:
                     - state: true
                     - show_name: false
                     - icon_color: var(--paper-item-icon-color)
+              - type: custom:button-card
+                template: shoulder_blank_card
           - type: horizontal-stack
             cards:
+                - type: custom:button-card
+                  template: shoulder_blank_card
                 - type: custom:decluttering-card
                   template: info
                   variables:
@@ -622,3 +678,5 @@ cards:
                       - state: true
                       - show_name: false
                       - icon_color: var(--paper-item-icon-color)
+                - type: custom:button-card
+                  template: shoulder_blank_card
