@@ -354,7 +354,7 @@ cards:
               name: "DB size"
               unit_of_measurement: 'MB'
 
-            - entity: sensor.cert_expiry_saarhome_mynetgear_com
+            - entity: sensor.cert_expiry_saar_home
               name: "SSL"
               unit_of_measurement: 'Days'
 

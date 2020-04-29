@@ -471,38 +471,46 @@ cards:
           - type: horizontal-stack
             cards:
               - type: custom:button-card
-                template: shoulder_blank_card
+                template: shoulder_blank_card 
               - type: custom:bar-card
                 entity: sensor.cover_livingroom_positon
                 name: "מצב התריס"
                 positions:
+                  # direction: up
                   icon: 'off'
                   indicator: outside
-                  minmax: inside
                   value: inside
                   width: 70%
                   font-family: tahoma
                   font-weight: bold
                 style: |-
-                  bar-card-value {
-                    margin-right: auto;
-                    margin-left: auto;
-                    margin-bottom: auto;
+                  bar-card-title {
+                    color: orange;
+                    font-family: Roboto;
+                    font-size: 15px;
+                    font-weight: bold;
+                   }  
+                  bar-card-min {
                     margin-top: 0px;
-                    font-family: tahoma;
-                    text-shadow: 1px 1px #0005;
-                  }
-                  bar-card-minvalue {
-                    margin-top: 0px;
-                    margin-left: 8px;
-                    margin-right: auto;
+                    margin-left: 0px;
+                    margin-right: 150px;
                     margin-bottom: -13px;
                     bottom: 8px;
                     font-family: tahoma;
                     font-weight: bold;
                     text-shadow: 1px 1px #0005;
                   }
-                  bar-card-maxvalue {
+                  bar-card-name {
+                    text-shadow: 1px 1px #0005;
+                    font-family: tahoma;
+                    font-size: 12px;
+                    }
+                  bar-card-value {
+                    margin-top: 0px;
+                    font-family: tahoma;
+                    text-shadow: 1px 1px #0005;
+                  }
+                  bar-card-max {
                     margin-bottom: 0px;
                     margin-right: 8px;
                     margin-left: auto;
@@ -516,15 +524,6 @@ cards:
                   bar-card-divider {
                     display: none;
                   }
-                  bar-card-contentbar {
-                    flex-direction: column;
-                  }
-                  bar-card-title {
-                    margin-bottom: 0px;
-                    text-shadow: 1px 1px #0005;
-                    font-family: tahoma;
-                    font-size: 12px;
-                    }   
               - type: custom:button-card
                 template: shoulder_blank_card          
           - type: horizontal-stack
