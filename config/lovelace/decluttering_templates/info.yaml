@@ -24,6 +24,7 @@ info1:
     default:
 
     card:
+        direction: '[[direction]]' 
         type: "custom:button-card"
         entity: '[[entity]]'
         show_state: '[[state]]'

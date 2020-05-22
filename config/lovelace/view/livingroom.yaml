@@ -40,6 +40,32 @@ cards:
         - type: custom:decluttering-card
           template: title
           variables:
+            - name: תאורה חדר כביסה
+          
+        - type: entities
+          show_header_toggle: false
+          entities: 
+            - type: 'custom:slider-entity-row'
+              entity: input_number.bathroom_lights_without_motion 
+              name: זמן לכיבוי תאורה
+
+            - entity: switch.bathroom_light
+              name: מצב תאורה
+            - entity: automation.bathroom_light_off
+              name: אוטומצית הפעלת תאורה בתנועה
+            - entity: input_datetime.bathroom_start_time
+              name: שעת התחלה
+            - entity: automation.bathroom_light_off
+              name: אוטומצית כיבוי תאורה בתנועה
+            - entity: input_datetime.bathroom_end_time
+              name: שעת כיבוי
+             # name: כיבוי לאחר זמן שאין תנועה
+
+  - type: vertical-stack
+    cards:
+        - type: custom:decluttering-card
+          template: title
+          variables:
             - name: מנורת מטבח
           
         - type: entities
@@ -56,7 +82,7 @@ cards:
       - type: custom:decluttering-card
         template: title
         variables:
-          - name: מצב סוללות
+          - name: -מצב סוללות-
 
       - type: entities
         tap_action:
@@ -72,7 +98,7 @@ cards:
       - type: custom:decluttering-card
         template: title
         variables:
-          - name: לוח זמנים לתאורה אק. תחתון
+          - name: -מצב חיישני תנועה-
 
       - type: entities
         tap_action:

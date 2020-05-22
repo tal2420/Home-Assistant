@@ -19,9 +19,9 @@ cards:
               - right: -14%
               - image_away: '/local/saar-new.jpg'
               - image_home: '/local/saar-new.jpg'
-              - battery: saar_battery
-              - icon: saar_battery
-              - icon_size: 14
+              - battery: mi_9t_pro_battery_level
+              - icon: mi_9t_pro_battery_level
+              - icon_size: 6
               - text_color: white
               - text_weight: bold
               - icon_color: white
@@ -44,9 +44,9 @@ cards:
               - person: michael
               - image_away: '/local/michael-new1.jpg'
               - image_home: '/local/michael-new1.jpg'
-              - battery: michael_battery
-              - icon: michael_battery
-              - icon_size: 14
+              - battery: sm_n975f_battery_level
+              - icon: sm_n975f_battery_level
+              - icon_size: 6
               - text_color: white
               - icon_color: white
               - tap_action: more_info
@@ -69,9 +69,9 @@ cards:
               - person: rachel
               - image_away: '/local/rachel-new.jpg'
               - image_home: '/local/rachel-new.jpg'
-              - battery: rachel_battery
-              - icon: rachel_battery
-              - icon_size: 14
+              - battery: sm_g965f_battery_level
+              - icon: sm_g965f_battery_level
+              - icon_size: 6
               - text_color: white
               - icon_color: white
               - tap_action: more_info
@@ -420,12 +420,12 @@ cards:
                     direction: up
                     height: 100px
                     entities:
-                     - entity: sensor.printer_black
+                     - entity: sensor.hp_deskjet_4670_series_black_ink
                        unit_of_measurement: '%'
                        color: black
                        font-color: white
                        name: מחסנית שחורה
-                     - entity: sensor.printer_color
+                     - entity: sensor.hp_deskjet_4670_series_tri_color_ink
                        unit_of_measurement: '%'
                        font-color: white
                        name: מחסנית צבעונית
@@ -679,3 +679,45 @@ cards:
                       - icon_color: var(--paper-item-icon-color)
                 - type: custom:button-card
                   template: shoulder_blank_card
+
+      - type: vertical-stack
+        cards:
+          - type: custom:decluttering-card
+            template: title
+            variables:
+               - name: מידע אודות צריכת מים
+          - type: horizontal-stack
+            cards:
+              - type: custom:button-card
+                template: shoulder_blank_card
+              - type: custom:decluttering-card
+                template: info1
+                variables:
+                    - entity: sensor.read_your_meter1
+                    - direction: rtl
+                    - state: true
+                    - show_name: true
+                    - name: קריאת מונה אחרונה
+                    - icon: mdi:speedometer
+                    - icon_color: var(--paper-item-icon-color)
+
+              - type: custom:decluttering-card
+                template: info1
+                variables:
+                    - entity: sensor.read_your_meter_daily1
+                    - state: true
+                    - show_name: true
+                    - name: צריכת מים יומית
+                    - icon: mdi:speedometer
+                    - icon_color: var(--paper-item-icon-color)
+              - type: custom:decluttering-card
+                template: info1
+                variables:
+                    - entity: sensor.read_your_meter_monthly1
+                    - state: true
+                    - show_name: true
+                    - name: צריכת מים חודשית
+                    - icon: mdi:speedometer
+                    - icon_color: var(--paper-item-icon-color)
+              - type: custom:button-card
+                template: shoulder_blank_card

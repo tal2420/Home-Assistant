@@ -115,11 +115,10 @@ views:
                           - entity: person.rachel
                             name: רחל
 
-              # - row: 4
-              #   columns:
-              #     - column: 1
-              #       entities:
-              #         - title: 
-              #           entities:
-              #             - entity: switch.wemos_d1_mini
-              #               name: Wemos D1
+                  - columns: 3
+                    tileOnRow: 1
+                    entities:
+                      - title:
+                        entities:
+                          - entity: switch.balcony_lights
+                            name: אור במרפסת
