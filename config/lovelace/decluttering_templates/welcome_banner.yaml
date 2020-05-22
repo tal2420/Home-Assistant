@@ -101,4 +101,4 @@ welcome_banner:
           text-rendering: optimizeLegibility
           -moz-osx-font-smoothing: grayscale
           font-smoothing: antialiased
-          -webkit-font-smoothing: antialiased
+          -webkit-font-smoothing: antialiased 
