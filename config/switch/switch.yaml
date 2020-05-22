@@ -95,4 +95,22 @@
             service: script.turn_on
             data:
               entity_id: script.switcher_turn_off
-  
+################################################################################
+
+- platform: mqtt
+  name: "Bathroom light"
+  state_topic: "shellies/shellyswitch25-68C63AF966FD/relay/0"
+  command_topic: "shellies/shellyswitch25-68C63AF966FD/relay/0/command"
+  qos: 2
+  payload_on: "on"
+  payload_off: "off"
+################################################################################
+- platform: mqtt
+  name: "Balcony Lights"
+  state_topic: "shellies/shellyswitch25-68C63AF966F2/relay/0"
+  command_topic: "shellies/shellyswitch25-68C63AF966F2/relay/0/command"
+  qos: 2
+  payload_on: "on"
+  payload_off: "off"
+################################################################################
+

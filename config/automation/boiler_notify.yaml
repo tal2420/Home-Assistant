@@ -1,0 +1,45 @@
+- alias: 'Auto boiler notify 8-00'
+  trigger:
+    platform: time
+    at: '08:00:00'
+  action:
+    service: notify.notify
+    data:
+      title: "הודעת טמפ׳ מיים חמים"
+      message: "טמפ׳ המיים בבוילר היא {{ states.sensor.boiler_temp.state }} "
+- alias: 'Auto boiler notify 10-00'
+  trigger:
+    platform: time
+    at: '10:00:00'
+  action:
+    service: notify.notify
+    data:
+      title: "הודעת טמפ׳ מיים חמים"
+      message: "טמפ׳ המיים בבוילר היא {{ states.sensor.boiler_temp.state }} "
+- alias: 'Auto boiler notify 12-00'
+  trigger:
+    platform: time
+    at: '13:00:00'
+  action:
+    service: notify.notify
+    data:
+      title: "הודעת טמפ׳ מיים חמים"
+      message: "טמפ׳ המיים בבוילר היא {{ states.sensor.boiler_temp.state }} "
+- alias: 'Auto boiler notify3 16-00'
+  trigger:
+    platform: time
+    at: '16:00:00'
+  action:
+    service: notify.notify
+    data:
+      title: "הודעת טמפ׳ מיים חמים"
+      message: "טמפ׳ המיים בבוילר היא {{ states.sensor.boiler_temp.state }} "
+- alias: 'Auto boiler notify 20-00'
+  trigger:
+    platform: time
+    at: '20:00:00'
+  action:
+    service: notify.notify
+    data:
+      title: "הודעת טמפ׳ מיים חמים"
+      message: "טמפ׳ המיים בבוילר היא {{ states.sensor.boiler_temp.state }} "

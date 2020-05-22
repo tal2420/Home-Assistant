@@ -198,23 +198,15 @@
   action:
   - service: mqtt.publish
     data:
-      topic: cmnd/saarhome/power1
+      topic: saarhome/cmnd/power1
       payload: ""
   - service: mqtt.publish
     data:
-      topic: cmnd/saarhome/power2
+      topic: saarhome/cmnd/power2
       payload: ""  
   - service: mqtt.publish
     data:
-      topic: cmnd/saarhome/power3
-      payload: ""
-  - service: mqtt.publish
-    data:
-      topic: cmnd/saarhome/power4
-      payload: ""
-  - service: mqtt.publish
-    data:
-      topic: tele/Sonoff4/SENSOR
+      topic: saarhome/cmnd/sensor
       payload: ""
 #########################################################################
 #                                                                       #
@@ -309,6 +301,39 @@
     at: '08:00:00'
   action:
     service: shell_command.backup_to_hardisk
-    # entity_id: script.backup_to_hardisk
 
 ########################################################################
+
+- id: 'Bathroom Auto Lights on'
+  alias: bathroom_light_on
+  trigger:
+    - entity_id: sensor.motion_2_status_state
+      platform: state
+      to: '1'
+  condition:
+    - condition: time
+      after: '20:00:00'
+      before: '06:00:00'
+    # - condition: template
+    #  value_template: '{{states(''sensor.time'') == (states.input_datetime.bathroom_start_time.attributes.timestamp | int | timestamp_custom(''%H:%M'', False))}}'
+  action:
+    - service: switch.turn_on
+      entity_id: switch.bathroom_light
+
+- id: 'Bathroom Auto Lights off'
+  alias: bathroom_light_off
+  trigger:
+    - entity_id: sensor.motion_2_status_state
+      platform: state
+      to: '0'
+      for: 
+        minutes: '1' # {{ states('input_number.bathroom_lights_without_motion' ) | int }}"
+  condition:
+    - condition: time
+      after: '20:00:00'
+      before: '06:00:00'
+    # - condition: template
+   #   value_template: '{{states(''sensor.time'') == (states.input_datetime.bathroom_end_time.attributes.timestamp | int | timestamp_custom(''%H:%M'', False))}}'
+  action:
+    - service: switch.turn_off
+      entity_id: switch.bathroom_light

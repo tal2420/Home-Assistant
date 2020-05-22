@@ -35,7 +35,6 @@ person_elements:
         style:
           left: 0
           bottom: 0
-          # pointer-events: none
           font-size: 13px
           font-weight: bold
           line-height: 17px
@@ -52,7 +51,6 @@ person_elements:
           right: 0
           bottom: 0
           direction: '[[direction]]' 
-          # pointer-events: none
           transform: initial
           font-size: 13px
           font-weight: bold
@@ -67,8 +65,9 @@ person_elements:
           bottom: '[[bottom]]'
           right: '[[right]]'
           direction: '[[direction]]'
-          # pointer-events: none
-          --iron-icon-width: '[[icon_size]]px'
+          -–iron-icon-height: 3px
+          -–iron-icon-width: 3px
+         # --iron-icon-width: '[[icon_size]]px'
           --paper-item-icon-color: '[[text_color]]'
 
 
@@ -79,8 +78,6 @@ person_elements:
           top: 6%
           left: 50%
           direction: '[[direction2]]'
-          # pointer-events: none
-          # transform: initial
           font-size: 10px
           color: '[[text_color]]'
           background-color: rgba(0, 0, 0, 0.5)

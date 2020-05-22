@@ -47,6 +47,17 @@ sonoff6_end_time:
     name: שעת כיבוי תאורה 
     has_date: false
     has_time: true
+    
+bathroom_start_time:
+    name: שעת הדלקת תאורה
+    has_date: false
+    has_time: true
+
+bathroom_end_time:
+    name: שעת כיבוי תאורה 
+    has_date: false
+    has_time: true
+    
 vacuum_timer_on:
     name: שעת הדלקת שואב 
     has_date: false

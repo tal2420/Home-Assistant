@@ -44,7 +44,7 @@
   initial_state: 'on'
   trigger:
     - platform: state
-      entity_id: sensor.ha_available_version
+      entity_id: sensor.ha_update_available
       to: 'yes'
   action:
     - service: notify.mobile_app_mi_9t_pro

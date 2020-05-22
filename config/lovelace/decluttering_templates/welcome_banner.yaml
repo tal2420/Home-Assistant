@@ -31,7 +31,6 @@ welcome_banner:
           color: '[[text_color]]'
           text-shadow: 2px 2px DarkSlateGrey
           font-family: tahoma
-          pointer-events: none
           text-rendering: optimizeLegibility
           -moz-osx-font-smoothing: grayscale
           font-smoothing: antialiased
@@ -102,4 +101,4 @@ welcome_banner:
           text-rendering: optimizeLegibility
           -moz-osx-font-smoothing: grayscale
           font-smoothing: antialiased
-          -webkit-font-smoothing: antialiased
+          -webkit-font-smoothing: antialiased 
