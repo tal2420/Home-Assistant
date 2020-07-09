@@ -494,7 +494,7 @@
       - type: last_boot
 
   - platform: darksky
-    api_key: d03ec468f0f920610cc93eea77fc18f6
+    api_key:
     units: ca
     language: he
     forecast:
